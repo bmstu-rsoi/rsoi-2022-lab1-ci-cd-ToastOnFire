@@ -1,0 +1,26 @@
+{
+  "name": "server",
+  "version": "1.0.0",
+  "description": "",
+  "main": "server.js",
+  "scripts": {
+    "test": "mocha *.test.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/bmstu-rsoi/rsoi-2022-lab1-ci-cd-ToastOnFire.git"
+  },
+  "author": "ToastOnFire",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/bmstu-rsoi/rsoi-2022-lab1-ci-cd-ToastOnFire/issues"
+  },
+  "homepage": "https://github.com/bmstu-rsoi/rsoi-2022-lab1-ci-cd-ToastOnFire#readme",
+  "dependencies": {
+    "body-parser": "^1.20.1",
+    "express": "^4.18.2",
+    "mocha": "^10.1.0",
+    "pg": "^8.8.0",
+    "supertest": "^6.3.1"
+  }
+}

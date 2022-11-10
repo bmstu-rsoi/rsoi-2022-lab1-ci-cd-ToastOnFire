@@ -11,11 +11,25 @@ jobs:
     name: Autograding
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v2
+       
+      - name: Use Node.js 19
+        uses: actions/setup-node@v2
         with:
-          fetch-depth: 0
-
-      # TODO build, test and deploy project
+            node-version: 19-alpine
+      - run: npm install
+      - run: npm run build --if-present
+      - run: npm test
+      
+      -name: Deploy on Heroku
+        - uses: actions/checkout@v2
+        - uses: akhileshns/heroku-deploy@v3.12.12
+            with:
+            heroku_api_key: ${{secrets.HEROKU_API_KEY}}
+            heroku_app_name: rsoi-lab1-bmstu
+            heroku_email: aaaaa7000@mail.ru
+            usedocker: true
+                
 
       - name: Run API Tests
         uses: matt-ball/newman-action@master

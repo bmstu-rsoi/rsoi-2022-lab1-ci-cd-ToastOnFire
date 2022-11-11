@@ -15,11 +15,12 @@ jobs:
         uses: actions/setup-node@v2
         with:
             node-version: "18.x"
+      - run: git config --global url."https://${{ secrets.PAT }}@github.com/".insteadOf ssh://git@github.com/
       - run: npm install
       - run: npm test
       
       - name: Deploy on Heroku
-        uses: akhileshns/heroku-deploy@v3.12.12
+      - uses: akhileshns/heroku-deploy@v3.12.12
         with:
           heroku_api_key: ${{secrets.HEROKU_API_KEY}}
           heroku_app_name: rsoi-lab1-bmstu

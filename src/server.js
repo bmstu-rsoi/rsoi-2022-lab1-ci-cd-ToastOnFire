@@ -18,11 +18,11 @@ const { Pool } = require('pg');
 const express = require('express');
 const server = express();
 const pool = new Pool({
-	user: 'program',
-	database: 'persons',
-	password: 'test',
+	user: 'qpajqeniwodtzn',
+	database: 'd5b3d9cm914epo',
+	password: '798135733b98c36ba0bd96cb808ff63a3f586402d215c199679a2dde1e0ce7ee',
 	port: 5432,
-	host: 'localhost',
+	host: 'ec2-99-80-170-190.eu-west-1.compute.amazonaws.com',
 });
 
 const bodyParser = require('body-parser')

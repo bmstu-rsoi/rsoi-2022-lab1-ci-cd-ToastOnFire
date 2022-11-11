@@ -1,7 +1,7 @@
 const request = require('supertest');
-const path = '/api/v1/';
+const path = '/api/v1';
 
-var server = require('./server').server;
+var server = require('../src/server').server;
 
 describe('Get "/persons" tests', function() {
 	it('Response is expected JSON structure', function (done) {

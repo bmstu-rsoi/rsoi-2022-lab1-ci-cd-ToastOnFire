@@ -16,7 +16,6 @@ jobs:
         with:
             node-version: "18.x"
       
-      - run: docker compose up -d
       - run: npm install --prefix ./src
       
       - name: Deploy on Heroku

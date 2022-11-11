@@ -1,10 +1,9 @@
 function userDataFine(values, type) {
 	if (type == 'post' && (!values.name || !Number.isInteger(values.age))) {
 		return false;
-	} else if (type == 'patch' && ('age' in Object.keys(values) && !Number.isInteger(values.age))) {
+	} else if (type == 'patch' && (Object.keys(values).indexOf('age') != -1 && !Number.isInteger(values.age))) {
 		return false;
 	}
-	
 	return true;
 }
 

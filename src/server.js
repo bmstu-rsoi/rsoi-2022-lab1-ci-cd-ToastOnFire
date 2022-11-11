@@ -111,7 +111,7 @@ server.delete(path+'/persons/:id', function(request, response) {
 	})
 });
 
-server.listen(serverPortNumber, () => {
+server.listen(process.env.PORT || serverPortNumber, () => {
 	console.log('server works on port '+serverPortNumber);
 })
 

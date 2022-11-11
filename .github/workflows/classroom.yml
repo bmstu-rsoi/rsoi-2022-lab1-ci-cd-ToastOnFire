@@ -16,7 +16,7 @@ jobs:
         with:
             node-version: "18.x"
       
-      - run: npm install ./src
+      - run: npm install --prefix ./src
       
       - name: Deploy on Heroku
         uses: akhileshns/heroku-deploy@v3.12.12
@@ -26,7 +26,7 @@ jobs:
           heroku_email: aaaaa7000@mail.ru
           usedocker: true
                 
-      - run: npm test
+      - run: npm test --prefix ./src
 
       - name: Run API Tests
         uses: matt-ball/newman-action@master

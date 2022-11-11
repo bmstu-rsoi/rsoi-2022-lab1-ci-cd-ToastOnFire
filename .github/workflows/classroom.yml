@@ -15,8 +15,7 @@ jobs:
         uses: actions/setup-node@v2
         with:
             node-version: "18.x"
-      - run: git config --global url."https://${{ secrets.PAT }}@github.com/".insteadOf ssh://git@github.com/
-      - run: npm install
+      - run: npm install ./src
       - run: npm test
       
       - name: Deploy on Heroku

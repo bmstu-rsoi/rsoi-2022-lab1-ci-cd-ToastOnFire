@@ -1,7 +1,7 @@
 function userDataFine(values, type) {
 	if (type == 'post' && (!values.name || !Number.isInteger(values.age))) {
 		return false;
-	} else if (type == 'patch' && !Number.isInteger(values.age)) {
+	} else if (type == 'patch' && ('age' in Object.keys(values) && !Number.isInteger(values.age))) {
 		return false;
 	}
 	
@@ -63,8 +63,9 @@ server.post(path+'/persons', function(request, response) {
 		})
 	}).then(function(result) {
 		if (userDataFine(request.body, 'post')) {
+			values = [result, request.body.name, request.body.age, request.body.address, request.body.work]
 			pool.query('INSERT INTO persons_table (id, name, age, address, work) VALUES ($1,$2,$3,$4,$5)', 
-			[result].concat(Object.values(request.body)), (err, res) => {
+			values, (err, res) => {
 				response.status(201).header('Location', '/api/v1/persons/'+result).send();
 			})
 		} else {

@@ -1,7 +1,7 @@
 const request = require('supertest');
 const path = '/api/v1';
 
-var server = require('../src/server').server;
+var server = require('./server').server;
 
 describe('Get "/persons" tests', function() {
 	it('Response is expected JSON structure', function (done) {
@@ -62,7 +62,7 @@ describe('Get "/persons/{personId}" tests', function() {
 	  request(server).get(path+'/persons/1').expect(200).end(done);
 	});
 	it('should return HTTP code 404', function (done) {
-	  request(server).get(path+'/persons/1000').expect(404).end(done);
+	  request(server).get(path+'/persons/1000').expect(404);
 	  request(server).get(path+'/persons/1000').expect(404).end(done);
 	});
 })

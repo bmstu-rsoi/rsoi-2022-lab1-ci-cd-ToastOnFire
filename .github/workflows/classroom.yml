@@ -22,13 +22,13 @@ jobs:
       - run: npm test
       
       -name: Deploy on Heroku
-        - uses: actions/checkout@v2
-        - uses: akhileshns/heroku-deploy@v3.12.12
-            with:
-            heroku_api_key: ${{secrets.HEROKU_API_KEY}}
-            heroku_app_name: rsoi-lab1-bmstu
-            heroku_email: aaaaa7000@mail.ru
-            usedocker: true
+        uses: actions/checkout@v2
+        uses: akhileshns/heroku-deploy@v3.12.12
+        with:
+          heroku_api_key: ${{secrets.HEROKU_API_KEY}}
+          heroku_app_name: rsoi-lab1-bmstu
+          heroku_email: aaaaa7000@mail.ru
+          usedocker: true
                 
 
       - name: Run API Tests
